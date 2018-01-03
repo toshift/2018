@@ -6,8 +6,6 @@ def fib_func(x):
     for _ in range(x):
         yield a
         a, b = b, (a+b)
-        if a == x:
-            return
 
 if __name__ == "__main__":
     x = 100
