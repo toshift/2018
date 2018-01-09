@@ -91,7 +91,7 @@ def eth_blockNumber(url):
     print("eth_blockNumber:",i)
 
 if __name__ == "__main__":
-    url = "XXXXX"
+    url = "http://127.0.0.1:8545"
     eth_syncing(url)
     eth_getBalance("xxxxx") 
     net_peerCount(url)
