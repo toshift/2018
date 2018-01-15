@@ -1,0 +1,1 @@
+print([(x, y) for x in [3,5,9] for y in [3,5,9] if x != y])
