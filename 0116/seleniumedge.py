@@ -4,7 +4,12 @@
 from selenium import webdriver
 from time import sleep
 
-driver =  webdriver.Edge(executable_path='webdriver/MicrosoftWebDriver.exe')
-sleep(5)
-driver.close()
+try:
+    driver = webdriver.Edge(executable_path='webdriver/MicrosoftWebDriver.exe')
+    sleep(5)
+except:
+    pass
+finally:
+    if driver:
+        driver.close()
 exit(0)
