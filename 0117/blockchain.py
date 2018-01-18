@@ -8,20 +8,20 @@ from time import time
 ・新しいブロックはチェーンに加える
 ・ハッシュ : メッセージを特定するための暗号化技術
 ・トランザクション : データベース管理システム（または類似のシステム）内で実行される、分けることのできない一連の情報処理の単位
-・プルーフオブワーク ： 
 """
 
+
 class BlockChain(object):
+
     def __init__(self):
         # チェーン
         self.chain = []
         # トランザクション
         self.current_transactions = []
-        
         # ジェネシスブロックの生成
         self.new_block(previous_hash=1, proof=100)
-    
-    def new_block(self, previous_hash=None, proof):
+
+    def new_block(self, proof, previous_hash=None):
         """
         新しいブロックの生成、チェーンに加える
         @param previous_hash: <str> 前のブロックのハッシュ
@@ -30,7 +30,7 @@ class BlockChain(object):
         """
 
         block = {
-            'index': len(self.chain) + 1
+            'index': len(self.chain) + 1,
             'timestamp': time(),
             'transactions': self.current_transactions,
             'proof': proof,
@@ -56,9 +56,8 @@ class BlockChain(object):
             'recipient': recipient,
             'amount': amount,
         })
-        ## インデックスは必ず1追加でいいのか?
-        return self.last_block['index'] += 1
-    
+        return self.last_block['index'] + 1
+
     @staticmethod
     def hash(block):
         """
@@ -68,11 +67,10 @@ class BlockChain(object):
         """
         block_string = json.dumps(block, sort_keys=True).encode()
         return hashlib.sha224(block_string).hexdigest()
-    
+
     @property
     def last_block(self):
         """
         チェーンの最後のブロックをリターンする
         """
         return self.chain[-1]
-

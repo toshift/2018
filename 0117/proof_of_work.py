@@ -3,10 +3,12 @@
 import hashlib
 import json
 
+
 class Proof_of_work:
     """
     プルーフオブワークアルゴリズムのためのクラス
     """
+
     def algo(self, last_proof):
         """
         プルーフオブワークのアルゴリズム
@@ -15,7 +17,6 @@ class Proof_of_work:
         proof = 0
         while self.validation_proof(last_proof, proof) is False:
             proof += 1
-        
 
     @staticmethod
     def validation_proof(last_proof, proof):
@@ -24,7 +25,7 @@ class Proof_of_work:
         アルゴリズムの難易度はここで決まる
         @ param last_proof: <int> 前のproof
         @ param proof: <int> 現在のproof
-        @ return <bool> 
+        @ return <bool>
         """
         guess = f'{last_proof}{proof}'.encode()
         print(guess)
