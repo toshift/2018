@@ -3,6 +3,8 @@ import hashlib
 import json
 from time import time
 
+from flask import Flask
+
 """
 ・チェーンはトランザクションを収納
 ・新しいブロックはチェーンに加える

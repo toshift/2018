@@ -33,7 +33,3 @@ class Proof_of_work:
         print(guess_hash)
 
         return guess_hash[-1] == '0'
-
-if __name__ == '__main__':
-    pOw = Proof_of_work()
-    pOw.algo(0)
