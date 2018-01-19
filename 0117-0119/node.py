@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from uuid import uuid4
 from blockchain import BlockChain
 from proof_of_work import Proof_of_work
@@ -12,6 +12,18 @@ node_identifire = str(uuid4()).replace('-', '')
 # ブロックチェーンクラスをインスタンス化
 blockchain = BlockChain()
 poW = Proof_of_work()
+
+
+@app.route('/')
+def index():
+    """
+    Flaskのインデックスページテスト用
+    """
+    title = "ようこそ"
+    message = "これはテスト用のインデックスページです"
+    return render_template("index.html",
+                           message=message,
+                           title=title)
 
 
 @app.route('/tr/new', methods=['POST'])
@@ -76,4 +88,5 @@ def full_chain():
 
 # port6000でサーバーを起動する
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=6000)
+    app.debug = True
+    app.run(host='0.0.0.0',port=5000)
