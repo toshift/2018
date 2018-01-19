@@ -1,0 +1,5 @@
+# pep8準拠のため以下を実施。
+>pip install pep8 pytest pytest-pep8
+# コマンド
+>py.test --pep8 [src]
+
