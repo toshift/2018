@@ -19,7 +19,7 @@ class BlockChain(object):
         # チェーン
         self.chain = []
         # トランザクション
-        self.current_transactions = []
+        self.current_transactions = {}
         # ジェネシスブロックの生成
         self.new_block(previous_hash=1, proof=100)
 
@@ -53,11 +53,11 @@ class BlockChain(object):
         @ param amount: <int> 量
         @ return <int> このトランザクションを含むブロックのアドレス
         """
-        self.current_transactions({
+        self.current_transactions = {
             'sender': sender,
             'recipient': recipient,
-            'amount': amount,
-        })
+            'amount': amount
+        }
         return self.last_block['index'] + 1
 
     @staticmethod
