@@ -26,9 +26,6 @@ if __name__ == "__main__":
     try:
         propA.param_a = 3
         print(propA.param_property)
-    except Exception as e:
-        print(e)
-    try:
         propB.param_c = 4
         print(propB.param_property)
     except Exception as e:
