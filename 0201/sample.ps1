@@ -15,8 +15,9 @@ function MakeDir($name) {
 }
 
 function Main {
+    $gitpath = "C:\work\github\2018"
     # gitのpathに変更する
-    Set-Location C:\work\github\2018
+    Set-Location $gitpath
     $dir_name = (Get-Date).ToString("MMdd")
     MakeDir($dir_name)
 }
