@@ -3,10 +3,6 @@
 
 # 今日のプログラミング用のディレクトリを作成する
 
-### 共通データ定義
-#[String[]]$PATH = C:\work\github\2018
-# Set-Locationにパラメータを渡したかったのに渡せなかったので、方法を探し中。
-
 function MakeDir($name) {
     if ((Test-Path $name) -eq $False ){
         New-Item -ItemType Directory -Path $name
